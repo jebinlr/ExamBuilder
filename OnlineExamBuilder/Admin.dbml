@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OnlineExamBuilder" Class="AdminDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-24MSH4V\SQLEXPRESS;Initial Catalog=OnlineExamBuilder;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OnlineExamBuilderConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="OnlineExamBuilder.Admin_Login" Method="Admin_Login">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="Admin_LoginResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

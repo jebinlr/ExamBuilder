@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OnlineExamBuilder" Class="AdminDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-24MSH4V\SQLEXPRESS;Initial Catalog=OnlineExamBuilder;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OnlineExamBuilderConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="OnlineExamBuilder.Admin_Login" Method="Admin_Login">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="Admin_LoginResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_UserGetAll" Method="Admin_UserGetAll">
+    <ElementType Name="Admin_UserGetAllResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_UserInsertUpdate" Method="Admin_UserInsertUpdate">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="adminlevel" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_UserDelete" Method="Admin_UserDelete">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_UserGetbyID" Method="Admin_UserGetbyID">
+    <Parameter Name="adminid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Admin_UserGetbyIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_TypeDrpdwn" Method="Admin_TypeDrpdwn">
+    <ElementType Name="Admin_TypeDrpdwnResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_SubjectDrpdwn" Method="Admin_SubjectDrpdwn">
+    <ElementType Name="Admin_SubjectDrpdwnResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_QuestionInsert" Method="Admin_QuestionInsert">
+    <Parameter Name="subjectid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="typeid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="questionid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_Fill_TypeGetByID" Method="Admin_Fill_TypeGetByID">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Admin_Fill_TypeGetByIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_Multi_TypeGetByID" Method="Admin_Multi_TypeGetByID">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Admin_Multi_TypeGetByIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoOFChoice" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Questions" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="choice1" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="choice2" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="choice3" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="choice4" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_Single_TypeGetByID" Method="Admin_Single_TypeGetByID">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Admin_Single_TypeGetByIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_FillInsert" Method="Admin_FillInsert">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="subject" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="answer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_MultipleInsert" Method="Admin_MultipleInsert">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="subid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="noofchoice" Type="System.Int32" DbType="Int" />
+    <Parameter Name="question" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="choice1" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="choice2" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="choice3" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="choice4" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="answer" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_SingleInsert" Method="Admin_SingleInsert">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="subjectid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="question" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="answer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Fill_TypeDelete" Method="Fill_TypeDelete">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Multiple_type_Delete" Method="Multiple_type_Delete">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Single_type_Delete" Method="Single_type_Delete">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="OnlineExamBuilder.Admin_Single_TypeGetAll" Method="Admin_Single_TypeGetAll">
+    <ElementType Name="Admin_Single_TypeGetAllResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="QuestionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Maths" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Science" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="English" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
